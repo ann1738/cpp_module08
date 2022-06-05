@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Span.hpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: anasr <anasr@student.42.fr>                +#+  +:+       +#+        */
+/*   By: ann <ann@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/03 13:31:11 by anasr             #+#    #+#             */
-/*   Updated: 2022/06/03 15:03:31 by anasr            ###   ########.fr       */
+/*   Updated: 2022/06/05 21:20:18 by ann              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 
 #include <iostream>
 #include <exception>
+#include <climits>
 #include <vector>
 #include <algorithm>
 
@@ -37,6 +38,7 @@ public:
 /******************Member Functions********************/
 	void	addNumber(int number);
 	int		shortestSpan();
+	void	quickAdd(int howMany, int value);
 	int		longestSpan();
 	void		fill(std::vector<int>::iterator begin,
 				std::vector<int>::iterator end,

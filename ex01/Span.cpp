@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   Span.cpp                                           :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: ann <ann@student.42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2022/06/05 21:10:20 by ann               #+#    #+#             */
+/*   Updated: 2022/06/05 21:43:52 by ann              ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "Span.hpp"
 
 /****************** Constructors ********************/
@@ -46,9 +58,11 @@ int		Span::shortestSpan()
 {
 	if (array.size() < 2)
 		throw std::logic_error("\e[31mError: unable to determine the shortest span with less than 2 numbers in the Span object\e[0m");
+	int	shortest = INT_MAX;
 	std::vector<int> copy(array);
 	std::sort(copy.begin(), copy.end());
-	return (copy[1] - copy[0]);
+	for (std::vector<int>::iterator it = copy.begin(); it != copy.end() - 1; ++it) if (abs(*it - *(it + 1) < shortest)) {shortest = abs(*it - *(it + 1));};
+	return (shortest);
 }
 
 int		Span::longestSpan()
@@ -72,4 +86,9 @@ void	Span::fill(std::vector<int>::iterator begin,
 			value += step;
 		}
 	}
+}
+
+void	Span::quickAdd(int howMany, int value)
+{
+	for (int i = 0; i < howMany; ++i) addNumber(value);
 }
