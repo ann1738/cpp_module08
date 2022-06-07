@@ -9,13 +9,11 @@
 template <typename T>
 class	MutantStack : public std::stack<T>
 {
-	// using std::stack<T>::c;
 public:
 /******************Constructors********************/
-	MutantStack(): std::stack<int>()
+	MutantStack(): std::stack<T>()
 	{
 		std::cout << "MutantStack: Default constructor is called\n";
-
 	}
 
 	MutantStack(const MutantStack& original): std::stack<T>(original)
@@ -38,14 +36,25 @@ public:
 	}
 
 /******************Iterators********************/
-	typedef std::_Deque_iterator<T, const T&, const T*> iterator;
+	typedef typename std::stack<T>::container_type::iterator iterator;
+	typedef typename std::stack<T>::container_type::const_iterator const_iterator;
 
-	iterator begin() const
+	iterator begin()
 	{
 		return std::stack<T>::c.begin();
 	}
 
-	iterator end() const
+	iterator end()
+	{
+		return std::stack<T>::c.end();
+	}
+
+	const_iterator begin() const
+	{
+		return std::stack<T>::c.begin();
+	}
+
+	const_iterator end() const
 	{
 		return std::stack<T>::c.end();
 	}

@@ -6,7 +6,7 @@
 /*   By: ann <ann@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/03 13:31:11 by anasr             #+#    #+#             */
-/*   Updated: 2022/06/05 21:20:18 by ann              ###   ########.fr       */
+/*   Updated: 2022/06/07 09:26:27 by ann              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,10 +40,10 @@ public:
 	int		shortestSpan();
 	void	quickAdd(int howMany, int value);
 	int		longestSpan();
-	void		fill(std::vector<int>::iterator begin,
-				std::vector<int>::iterator end,
-				int start_value,
-				int step = 0);
+	void	fill(std::vector<int>::iterator begin,
+			std::vector<int>::iterator end,
+			int start_value,
+			int step = 0);
 };
 
 /* template function to print container's content (FOR TESTING) */

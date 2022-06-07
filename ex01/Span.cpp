@@ -6,7 +6,7 @@
 /*   By: ann <ann@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/05 21:10:20 by ann               #+#    #+#             */
-/*   Updated: 2022/06/05 21:43:52 by ann              ###   ########.fr       */
+/*   Updated: 2022/06/07 09:33:37 by ann              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,13 +28,17 @@ Span::Span(const Span& original)
 {
 	std::cout << "Span: Copy constructor is called\n";
 	array = original.array;
+	max_size = original.max_size;
 }
 
 Span& Span::operator=(const Span& original)
 {
 	std::cout << "Span: Copy assignment overloading constructor is called\n";
 	if (this != &original)
+	{
 		array = original.array;
+		max_size = original.max_size;
+	}
 	return (*this);
 }
 
