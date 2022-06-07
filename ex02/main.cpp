@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ann <ann@student.42.fr>                    +#+  +:+       +#+        */
+/*   By: anasr <anasr@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/05 15:06:38 by ann               #+#    #+#             */
-/*   Updated: 2022/06/05 21:54:50 by ann              ###   ########.fr       */
+/*   Updated: 2022/06/07 16:06:09 by anasr            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,40 +15,8 @@
 
 int	main(void)
 {
-# if 0
-	// std::vector<int> i;
-	// std::vector<int>::iterator it = i.begin();
-	// std::stack<int> stak;
-	// stak.push(49832);
-	// stak.push(4983);
-	// stak.push(498);
-	// stak.push(49);
-	// stak.push(4);
-
-	// while (!stak.empty())
-	// {
-	// 	std::cout << stak.top() << std::endl;
-	// 	stak.pop();
-	// }
-	// for (int i = 0; i < stak.size(); ++i) std::cout << return_this_stack_num(stak, i) << std::endl; 
-
-	MutantStack<int> haha;
-
-	haha.push(49832);
-	haha.push(4983);
-	haha.push(498);
-	haha.push(49);
-	haha.push(4);
-
-
-	MutantStack<int>::iterator it =  haha.begin();
-	for(; it != haha.end(); ++it)
-		std::cout << *it << std::endl;
-	std::cout << "hey\n";
-#endif
-
-#if 1
 	{
+		std::cout << "\e[32m***************************** MutantStack *****************************\e[0m\n";
 		MutantStack<int> mstack;
 		mstack.push(5);
 		mstack.push(17);
@@ -73,14 +41,9 @@ int	main(void)
 			++it;
 		}
 
-		// std::cout << "COPY CONSTRUCTOR ----------------------------\n";
-		// MutantStack<int> copy(mstack);
-		// for (MutantStack<int>::iterator it = copy.begin(); it != copy.end(); ++it)
-		// 	std::cout << *it << std::endl;
-		
 		std::stack<int> s(mstack);
 	}
-	std::cout << "*****************************std::list*****************************\n";
+	std::cout << "\n\e[32m***************************** std::list *****************************\e[0m\n";
 	{
 		std::list<int> mstack;
 		mstack.push_back(5);
@@ -107,5 +70,33 @@ int	main(void)
 		}
 		std::list<int> s(mstack);
 	}
-#endif
+	{
+		std::cout << "\n\e[32m***************************** copy constructor and copy assignment overloading *****************************\e[0m\n";
+		
+		std::cout << "\n\e[33m*** constructing an object with 10 integers assigned to 42 ****\e[0m\n";
+		MutantStack<int> original;
+		for (int i = 0; i < 10; ++i)
+			original.push(42);
+
+		std::cout << "\e[33m*** constructing a copy of the previous object and assigning it to 10 ****\e[0m\n";
+		MutantStack<int> copy(original);
+		for (MutantStack<int>::iterator it = copy.begin(); it != copy.end(); ++it)
+			*it = 10;
+
+		std::cout << "\e[33m*** constructing a copy of the previous object (through assignment operator) and assigning it to -10 ****\e[0m\n";
+		MutantStack<int> equal;
+		equal = original;
+		for (MutantStack<int>::iterator it = equal.begin(); it != equal.end(); ++it)
+			*it = -10;
+
+		std::cout << "\n\e[34m*** printing the original object ****\e[0m\n";
+		for (MutantStack<int>::iterator it = original.begin(); it != original.end(); ++it)
+			std::cout << *it << std::endl;
+		std::cout << "\e[34m*** printing the copied object ****\e[0m\n";
+		for (MutantStack<int>::iterator it = copy.begin(); it != copy.end(); ++it)
+			std::cout << *it << std::endl;
+		std::cout << "\e[34m*** printing the copied object (through assignment operator) ****\e[0m\n";
+		for (MutantStack<int>::iterator it = equal.begin(); it != equal.end(); ++it)
+			std::cout << *it << std::endl;
+	}
 }
