@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: anasr <anasr@student.42.fr>                +#+  +:+       +#+        */
+/*   By: ann <ann@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/05 15:06:38 by ann               #+#    #+#             */
-/*   Updated: 2022/06/07 16:06:09 by anasr            ###   ########.fr       */
+/*   Updated: 2022/06/08 10:49:01 by ann              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,8 @@
 int	main(void)
 {
 	{
-		std::cout << "\e[32m***************************** MutantStack *****************************\e[0m\n";
+		std::cout << "\e[35m***************************** Test 1: subject file test *****************************\e[0m\n";
+		std::cout << "\e[32m\n***** MutantStack *****\e[0m\n";
 		MutantStack<int> mstack;
 		mstack.push(5);
 		mstack.push(17);
@@ -43,7 +44,7 @@ int	main(void)
 
 		std::stack<int> s(mstack);
 	}
-	std::cout << "\n\e[32m***************************** std::list *****************************\e[0m\n";
+	std::cout << "\e[32m\n***** std::list *****\e[0m\n";
 	{
 		std::list<int> mstack;
 		mstack.push_back(5);
@@ -71,7 +72,29 @@ int	main(void)
 		std::list<int> s(mstack);
 	}
 	{
-		std::cout << "\n\e[32m***************************** copy constructor and copy assignment overloading *****************************\e[0m\n";
+		std::cout << "\n\e[35m***************************** Test 2: more tests with alphabet *****************************\e[0m\n";
+		MutantStack<char> myStack;
+		myStack.push('a');
+		myStack.push('b');
+		myStack.push('c');
+		myStack.push('d');
+		myStack.push('e');
+		myStack.push('f');
+		myStack.push('g');
+		myStack.push('h');
+		myStack.push('i');
+
+		std::cout << "\e[32mDisplaying the stack:\e[0m\n";
+		for (MutantStack<char>::iterator it = myStack.begin(); it != myStack.end(); ++it)
+			std::cout << *it << std::endl;
+	
+		std::cout << "\e[32mThe top of the list is \e[0m" << myStack.top() << "\n";
+		myStack.pop();
+		std::cout << "\e[32mAfter removing an element (using pop()), the top of the list is \e[0m" << myStack.top() << "\n";
+		std::cout << "\e[33mThe size of the list is \e[0m" << myStack.size() << "\n";
+	}
+	{
+		std::cout << "\n\e[35m***************************** Test 3: copy constructor and copy assignment overloading *****************************\e[0m\n";
 		
 		std::cout << "\n\e[33m*** constructing an object with 10 integers assigned to 42 ****\e[0m\n";
 		MutantStack<int> original;

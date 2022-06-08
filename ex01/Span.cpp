@@ -6,7 +6,7 @@
 /*   By: ann <ann@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/05 21:10:20 by ann               #+#    #+#             */
-/*   Updated: 2022/06/07 09:33:37 by ann              ###   ########.fr       */
+/*   Updated: 2022/06/08 10:16:15 by ann              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ Span::Span() : max_size(0)
 
 Span::Span(unsigned int N) : max_size(N)
 {
-	std::cout << "Span: Default constructor is called\n";
+	std::cout << "Span: Custom constructor is called\n";
 }
 
 Span::Span(const Span& original)
@@ -65,7 +65,7 @@ int		Span::shortestSpan()
 	int	shortest = INT_MAX;
 	std::vector<int> copy(array);
 	std::sort(copy.begin(), copy.end());
-	for (std::vector<int>::iterator it = copy.begin(); it != copy.end() - 1; ++it) if (abs(*it - *(it + 1) < shortest)) {shortest = abs(*it - *(it + 1));};
+	for (std::vector<int>::iterator it = copy.begin(); it != copy.end() - 1; ++it) if (abs(*it - *(it + 1)) < shortest) {shortest = abs(*it - *(it + 1));};
 	return (shortest);
 }
 
